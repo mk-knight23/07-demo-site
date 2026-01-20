@@ -9,7 +9,7 @@ import {
   skills,
   getInTouch,
   experiences
-} from "./editable-stuff/config.js";
+} from "./editable-stuff/config.jsx";
 import MainBody from "./components/home/MainBody";
 import AboutMe from "./components/home/AboutMe";
 import Project from "./components/home/Project";
@@ -44,7 +44,7 @@ const Home = React.forwardRef((props, ref) => {
       )}
       {
         experiences.show && (
-          <Experience experiences={experiences}/>
+          <Experience experiences={experiences} />
         )
       }
       {repos.show && (
@@ -70,7 +70,7 @@ const Home = React.forwardRef((props, ref) => {
           softSkills={skills.softSkills}
         />
       )}
-      
+
     </>
   );
 });
@@ -82,7 +82,7 @@ const App = () => {
     <BrowserRouter basename={process.env.PUBLIC_URL + ""}>
       {navBar.show && <Navbar ref={titleRef} />}
       <Routes>
-        
+
         <Route path="/" exact element={<Home ref={titleRef} />} />
       </Routes>
       {/* {false && <Route path="/blog" exact component={Blog} />}
