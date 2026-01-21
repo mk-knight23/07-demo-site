@@ -43,36 +43,41 @@ function App() {
         <div className="bg-slate-50 min-h-screen">
             <motion.div className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-[100]" style={{ scaleX }} />
 
-            {/* Hero */}
-            <section className="h-screen relative flex items-center justify-center overflow-hidden gradient-bg text-white">
-                <div className="absolute inset-0 bg-black/20 backdrop-blur-[2px]" />
+            {/* Premium Hero Section */}
+            <section className="h-[90vh] relative flex items-center justify-center overflow-hidden bg-slate-950 text-white">
+                <div className="absolute inset-0 opacity-20 pointer-events-none">
+                    <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-indigo-500/10 rounded-full blur-[120px] animate-pulse"></div>
+                    <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-500/10 rounded-full blur-[120px] animate-pulse delay-1000"></div>
+                </div>
 
-                <div className="relative z-10 text-center px-6">
+                <div className="relative z-10 text-center px-6 max-w-5xl">
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="mb-8"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="mb-10"
                     >
-                        <div className="w-32 h-32 rounded-full border-4 border-white/30 p-1 mx-auto overflow-hidden bg-white/10 backdrop-blur-md">
-                            <div className="w-full h-full rounded-full bg-indigo-500 flex items-center justify-center">
-                                <User size={64} />
+                        <div className="w-40 h-40 rounded-[2.5rem] border border-white/10 p-2 mx-auto overflow-hidden bg-white/[0.03] backdrop-blur-xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <div className="w-full h-full rounded-[2rem] bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+                                <User size={80} className="text-white shadow-2xl" />
                             </div>
                         </div>
                     </motion.div>
 
                     <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-6xl md:text-8xl font-black mb-6 tracking-tighter"
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="text-7xl md:text-9xl font-black mb-8 tracking-tighter leading-[0.8]"
                     >
-                        {config.firstName} <span className="text-white/70">{config.lastName}</span>
+                        {config.firstName} <br /><span className="bg-gradient-to-br from-indigo-400 via-white to-blue-400 bg-clip-text text-transparent">{config.lastName}</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="text-xl md:text-2xl font-medium text-white/80 max-w-2xl mx-auto mb-10"
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="text-xl md:text-2xl font-medium text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed"
                     >
                         {config.message}
                     </motion.p>
@@ -80,24 +85,20 @@ function App() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.4 }}
-                        className="flex items-center justify-center gap-4"
+                        transition={{ delay: 0.5, duration: 0.8 }}
+                        className="flex items-center justify-center gap-6"
                     >
                         {config.social.map(s => (
                             <a
                                 key={s.name}
                                 href={s.url}
                                 target="_blank"
-                                className="p-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-md transition-all border border-white/20"
+                                className="p-5 bg-white/[0.03] hover:bg-white/[0.08] rounded-2xl backdrop-blur-xl transition-all border border-white/5 active:scale-95 group"
                             >
-                                {s.icon}
+                                <div className="group-hover:scale-110 transition-transform">{s.icon}</div>
                             </a>
                         ))}
                     </motion.div>
-                </div>
-
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-                    <ChevronDown className="w-8 h-8" />
                 </div>
             </section>
 
@@ -156,25 +157,28 @@ function App() {
                         {config.projects.map((p, idx) => (
                             <motion.div
                                 key={p}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: idx * 0.1 }}
+                                transition={{ delay: idx * 0.1, duration: 0.6 }}
                                 viewport={{ once: true }}
-                                className="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100 group hover:bg-slate-900 hover:text-white transition-all duration-500"
+                                whileHover={{ y: -12, transition: { duration: 0.3 } }}
+                                className="p-10 rounded-[3rem] bg-white border border-slate-100 group shadow-sm hover:shadow-[0_48px_96px_-16px_rgba(79,70,229,0.12)] transition-all duration-500"
                             >
-                                <div className="flex items-center justify-between mb-6">
-                                    <div className="p-4 bg-indigo-500/10 rounded-2xl text-indigo-500 group-hover:bg-indigo-500 group-hover:text-white transition-all">
-                                        <Code className="w-6 h-6" />
+                                <div className="flex items-center justify-between mb-8">
+                                    <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center text-indigo-500 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+                                        <Code className="w-8 h-8" />
                                     </div>
-                                    <ExternalLink className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
+                                        <ExternalLink className="w-6 h-6 text-slate-400" />
+                                    </div>
                                 </div>
-                                <h3 className="text-2xl font-black mb-4 uppercase tracking-tight">{p}</h3>
-                                <p className="text-slate-500 group-hover:text-slate-400 mb-6 font-medium">
+                                <h3 className="text-3xl font-black mb-5 tracking-tight group-hover:text-indigo-600 transition-colors">{p}</h3>
+                                <p className="text-slate-500 mb-8 font-medium leading-relaxed">
                                     A high-performance repository built with modern architectural patterns. Part of the Kazi open-source ecosystem.
                                 </p>
-                                <div className="flex gap-2">
-                                    <span className="px-3 py-1 bg-white/50 dark:bg-black/50 rounded-full text-xs font-bold uppercase tracking-widest border border-slate-200 group-hover:border-white/20">TypeScript</span>
-                                    <span className="px-3 py-1 bg-white/50 dark:bg-black/50 rounded-full text-xs font-bold uppercase tracking-widest border border-slate-200 group-hover:border-white/20">Scalable</span>
+                                <div className="flex flex-wrap gap-2">
+                                    <span className="px-5 py-2 bg-slate-50 rounded-xl text-[10px] font-black uppercase tracking-widest border border-slate-100 group-hover:bg-indigo-50 group-hover:border-indigo-100 transition-colors">TypeScript</span>
+                                    <span className="px-5 py-2 bg-slate-50 rounded-xl text-[10px] font-black uppercase tracking-widest border border-slate-100 group-hover:bg-indigo-50 group-hover:border-indigo-100 transition-colors">Scalable</span>
                                 </div>
                             </motion.div>
                         ))}
