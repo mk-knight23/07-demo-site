@@ -1,29 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-primary-glow: rgba(99, 102, 241, 0.1);
+    --color-secondary-glow: rgba(59, 130, 246, 0.1);
+}
 
 @layer base {
     body {
-        @apply antialiased bg-slate-50 text-slate-900;
-    }
-}
-
-.gradient-bg {
-    background: linear-gradient(-45deg, #4484ce, #1ad7c0, #ff9b11, #9b59b6, #ff7f7f, #ecf0f1);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
+        @apply bg-slate-50 text-slate-900 antialiased selection:bg-indigo-100;
     }
 }

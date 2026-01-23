@@ -1,18 +1,21 @@
 {
   "name": "07-demo-site",
-  "version": "2.0.0",
-  "description": "Corporate demo website template with modern design and animations.",
+  "private": false,
+  "version": "2.1.0",
+  "description": "Premium corporate portfolio template with React 19, TypeScript, Tailwind CSS v4, and Framer Motion 12.",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit"
   },
   "keywords": [
     "demo",
     "corporate",
     "website",
-    "template"
+    "template",
+    "framer-motion"
   ],
   "author": "Kazi Musharraf",
   "license": "MIT",
@@ -20,21 +23,24 @@
     "type": "git",
     "url": "git+https://github.com/mk-knight23/07-demo-site.git"
   },
-  "homepage": "https://07-demo-site.vercel.app",
+  "homepage": "https://mk-knight23.github.io/07-demo-site/",
   "dependencies": {
-    "framer-motion": "^11.5.4",
-    "lucide-react": "^0.441.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.0.1",
+    "lucide-react": "^0.474.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.45",
-    "tailwindcss": "^3.4.10",
-    "typescript": "^5.5.3",
-    "vite": "^7.3.1"
+    "postcss": "^8.5.1",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
   }
 }

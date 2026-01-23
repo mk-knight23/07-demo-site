@@ -195,7 +195,7 @@ function App() {
                         </a>
                     ))}
                 </div>
-                <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">© 2024 Kazi Musharraf • 30 Projects Rebuild</p>
+                <p className="text-slate-400 font-bold uppercase tracking-widest text-sm">© 2026 Kazi Musharraf • Modernization Engineering Wave</p>
             </footer>
         </div>
     );
