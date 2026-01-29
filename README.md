@@ -6,7 +6,7 @@ High-performance automation portfolio showcasing agentic workflows, LLM orchestr
 
 ### Live Portfolio
 
-- Vercel: (deployment pending - GitHub repo required)
+- Vercel: https://08-portfolio-ai-automation.vercel.app
 - Netlify: (contact for access)
 
 ---
