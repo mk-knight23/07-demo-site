@@ -2,7 +2,7 @@
 
 High-performance automation portfolio showcasing agentic workflows, LLM orchestration, and intelligent system architecture.
 
-Repository: https://github.com/mk-knight23/08-portfolio-personal-demo
+Repository: https://github.com/mk-knight23/08-portfolio-ai-automation
 
 ---
 
