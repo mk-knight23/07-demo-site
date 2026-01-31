@@ -6,10 +6,11 @@ import {
 } from 'lucide-react';
 
 const vibeProducts = [
-    { name: 'VIBE CLI', tagline: 'Multi-agent AI coding tool', icon: Terminal, status: 'In Development' },
-    { name: 'VIBE VS Code', tagline: 'Multi-agent IDE assistant', icon: Code2, status: 'Planned' },
-    { name: 'VIBE Web', tagline: 'Documentation hub', icon: Globe, status: 'Live' },
-    { name: 'VIBE Chat', tagline: 'AI website builder', icon: MessageSquare, status: 'Planned' }
+    { name: 'AI-VIBE-Automation', tagline: 'Workflow orchestration', icon: Zap, status: 'In Development' },
+    { name: 'AI-VIBE-CLI', tagline: 'Multi-agent AI interface', icon: Terminal, status: 'In Development' },
+    { name: 'AI-VIBE-ChatWeb', tagline: 'Conversational agent hub', icon: MessageSquare, status: 'Live' },
+    { name: 'AI-VIBE-WebBuilder', tagline: 'Generative site architect', icon: Globe, status: 'Planned' },
+    { name: 'AI-VIBE-VSCode', tagline: 'State-machine assistant', icon: Code2, status: 'Planned' }
 ];
 
 const selectedProjects = [
@@ -54,7 +55,7 @@ const skillsByCategory = {
     'AI Architecture': ['RAG Systems', 'Vector DBs', 'Prompt Chaining', 'Agentic Workflows', 'Model Fine-tuning']
 };
 
-type Tab = 'about' | 'vibe' | 'work' | 'skills' | 'resume' | 'contact';
+type Tab = 'about' | 'vibe' | 'work' | 'skills' | 'monitor' | 'resume' | 'contact';
 
 export default function App() {
     const [activeTab, setActiveTab] = useState<Tab>('about');
@@ -89,7 +90,7 @@ export default function App() {
                     <div className="flex items-center justify-between">
                         <span className="text-xl font-bold tracking-tight">MK</span>
                         <div className="flex gap-1 bg-white/5 rounded-lg p-1">
-                            {(['about', 'vibe', 'work', 'skills', 'resume', 'contact'] as Tab[]).map(tab => (
+                            {(['about', 'vibe', 'work', 'skills', 'monitor', 'resume', 'contact'] as Tab[]).map(tab => (
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
@@ -122,8 +123,7 @@ export default function App() {
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed mb-8">
                             Engineering intelligent <span className="text-indigo-400 font-medium">Automation Systems</span> and
-                            autonomous agents. Specializing in n8n workflows, agentic orchestration, and
-                            scaling business logic with AI.
+                            autonomous agents. Currently architecting the <span className="text-indigo-400 font-medium">AI-VIBE-ECOSYSTEM v2.0</span>.
                         </p>
                         <div className="flex flex-wrap justify-center gap-4">
                             <button
@@ -226,9 +226,9 @@ export default function App() {
                                 <span className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-indigo-400 text-sm">
                                     Flagship Project
                                 </span>
-                                <h2 className="text-3xl font-bold">VIBE Ecosystem</h2>
+                                <h2 className="text-3xl font-bold">AI-VIBE-ECOSYSTEM v2.0</h2>
                             </div>
-                            <p className="text-gray-400 text-lg">Founder & AI Engineer — A multi-product AI developer platform</p>
+                            <p className="text-gray-400 text-lg">Lead Automation Architect — Orchestrating Multi-Agent Systems</p>
 
                             <div className="grid md:grid-cols-2 gap-4">
                                 {vibeProducts.map((product, i) => (
@@ -553,6 +553,69 @@ export default function App() {
                                         Build dashboards that show the business impact of automation.
                                     </p>
                                 </div>
+                            </div>
+                        </motion.div>
+                    )}
+
+                    {/* vNext: Workflow Monitor Tab */}
+                    {activeTab === 'monitor' && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="space-y-8"
+                        >
+                            <h2 className="text-3xl font-bold">Workflow Monitor</h2>
+                            <p className="text-gray-400 text-lg max-w-2xl">
+                                Real-time automation monitoring. Mock data demonstrating observability patterns for production systems.
+                            </p>
+
+                            {/* Stats Grid */}
+                            <div className="grid md:grid-cols-4 gap-4">
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-center">
+                                    <div className="text-2xl font-bold text-emerald-400 mb-1">60+</div>
+                                    <p className="text-gray-400 text-sm">Workflows Deployed</p>
+                                </div>
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-center">
+                                    <div className="text-2xl font-bold text-blue-400 mb-1">100K+</div>
+                                    <p className="text-gray-400 text-sm">API Calls/Month</p>
+                                </div>
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-center">
+                                    <div className="text-2xl font-bold text-violet-400 mb-1">99.9%</div>
+                                    <p className="text-gray-400 text-sm">Uptime</p>
+                                </div>
+                                <div className="p-4 bg-white/5 border border-white/10 rounded-xl text-center">
+                                    <div className="text-2xl font-bold text-amber-400 mb-1">&lt;200ms</div>
+                                    <p className="text-gray-400 text-sm">Avg Latency</p>
+                                </div>
+                            </div>
+
+                            {/* Active Workflows */}
+                            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+                                <h3 className="text-lg font-semibold mb-4">Active Automations</h3>
+                                <div className="space-y-3">
+                                    {[
+                                        { name: 'Lead Scoring Pipeline', status: 'running', lastRun: '2 min ago' },
+                                        { name: 'Content Repurposing', status: 'running', lastRun: '15 min ago' },
+                                        { name: 'Daily Report Generator', status: 'scheduled', lastRun: 'Next: 6:00 AM' },
+                                        { name: 'Data Sync (Slack→DB)', status: 'running', lastRun: 'Real-time' }
+                                    ].map((workflow, i) => (
+                                        <div key={i} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+                                            <div className="flex items-center gap-3">
+                                                <span className={`w-2 h-2 rounded-full ${workflow.status === 'running' ? 'bg-emerald-400 animate-pulse' :
+                                                        workflow.status === 'scheduled' ? 'bg-amber-400' : 'bg-gray-400'
+                                                    }`}></span>
+                                                <span className="text-gray-200">{workflow.name}</span>
+                                            </div>
+                                            <span className="text-gray-500 text-sm">{workflow.lastRun}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl">
+                                <p className="text-emerald-400 text-sm text-center">
+                                    🤖 Mock data for demonstration — Production monitoring requires real infrastructure
+                                </p>
                             </div>
                         </motion.div>
                     )}
