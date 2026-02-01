@@ -17,6 +17,8 @@ Integrated with the **AI-VIBE-ECOSYSTEM v2.0** for advanced multi-agent orchestr
 | **GitHub Pages** | [mk-knight23.github.io/08-portfolio-ai-automation](https://mk-knight23.github.io/08-portfolio-ai-automation/) |
 | **Vercel** | [08-portfolio-ai-automation.vercel.app](https://08-portfolio-ai-automation.vercel.app/) |
 | **Netlify** | [08-portfolio-ai-automation.netlify.app](https://08-portfolio-ai-automation.netlify.app/) |
+| **Render** | [zero8-portfolio-ai-automation.onrender.com](https://zero8-portfolio-ai-automation.onrender.com/) |
+
 
 ---
 
