@@ -1,67 +1,669 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#6366f1" />
+  <meta name="theme-color" content="#0ea5e9" />
 
   <!-- Primary Meta Tags -->
-  <title>Kazi Musharraf — lead Automation Architect (AI-VIBE-ECOSYSTEM v2.0)</title>
-  <meta name="title" content="Kazi Musharraf — Lead Automation Architect (AI-VIBE-ECOSYSTEM v2.0)">
-  <meta name="description"
-    content="Lead Automation Architect for the AI-VIBE-ECOSYSTEM v2.0. Specializing in multi-agent orchestration, autonomous workflows, and intelligent system architecture.">
-  <meta name="keywords"
-    content="AI-VIBE-ECOSYSTEM v2.0, AI-VIBE-Automation, agentic workflows, llm orchestration, multi-agent systems, kazi musharraf">
+  <title>Kazi Musharraf — Automation Engineer & Workflow Architect</title>
+  <meta name="title" content="Kazi Musharraf — Automation Engineer & Workflow Architect">
+  <meta name="description" content="Automation Engineer specializing in workflow orchestration, CI/CD pipelines, DevOps automation, and agentic systems. Architecting the AI-VIBE-ECOSYSTEM v2.0.">
+  <meta name="keywords" content="automation engineer, workflow orchestration, CI/CD, DevOps, n8n, agentic systems, kazi musharraf">
   <meta name="author" content="Kazi Musharraf">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://mk-knight23.github.io/08-portfolio-ai-automation/">
-  <meta property="og:title" content="Kazi Musharraf — AI Automation Engineer">
-  <meta property="og:description"
-    content="AI Automation Engineer specializing in agentic workflows, LLM integration, and intelligent automation.">
+  <meta property="og:title" content="Kazi Musharraf — Automation Engineer">
+  <meta property="og:description" content="Automation Engineer specializing in workflow orchestration, CI/CD, and agentic automation systems.">
   <meta property="og:image" content="https://mk-knight23.github.io/08-portfolio-ai-automation/og-image.png">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://mk-knight23.github.io/08-portfolio-ai-automation/">
-  <meta name="twitter:title" content="Kazi Musharraf — AI Automation Engineer">
-  <meta name="twitter:description"
-    content="AI Automation Engineer specializing in agentic workflows, LLM integration, and intelligent automation.">
+  <meta name="twitter:title" content="Kazi Musharraf — Automation Engineer">
+  <meta name="twitter:description" content="Automation Engineer specializing in workflow orchestration, CI/CD, and agentic automation systems.">
   <meta name="twitter:image" content="https://mk-knight23.github.io/08-portfolio-ai-automation/social-image.png">
 
-  <!-- Favicon - Automation/Process Icon for AI Automation -->
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' rx='10' fill='%231e1b4b' stroke='%23818cf8' stroke-width='4'/><circle cx='50' cy='50' r='20' fill='none' stroke='%23818cf8' stroke-width='6'/><path d='M50 20 L50 35 M50 65 L50 80 M20 50 L35 50 M65 50 L80 50' stroke='%23818cf8' stroke-width='6' stroke-linecap='round'/><circle cx='50' cy='50' r='8' fill='%23818cf8'/></svg>">
+  <!-- Favicon - Flow/Node Icon for Automation -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' rx='8' fill='%230f172a' stroke='%230ea5e9' stroke-width='3'/><circle cx='30' cy='50' r='8' fill='%230ea5e9'/><circle cx='70' cy='30' r='8' fill='%230ea5e9'/><circle cx='70' cy='70' r='8' fill='%230ea5e9'/><path d='M38 50 L62 34' stroke='%230ea5e9' stroke-width='3' stroke-linecap='round'/><path d='M38 50 L62 66' stroke='%230ea5e9' stroke-width='3' stroke-linecap='round'/></svg>">
 
-  <link rel="apple-touch-icon" href="/logo192.png" />
-  <link rel="manifest" href="/manifest.json" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            blueprint: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              200: '#bae6fd',
+              300: '#7dd3fc',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              800: '#075985',
+              900: '#0c4a6e',
+              950: '#082f49',
+            },
+            slate: {
+              850: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'flow': 'flow 2s linear infinite',
+            'node-pulse': 'nodePulse 2s ease-in-out infinite',
+          },
+          keyframes: {
+            flow: {
+              '0%': { strokeDashoffset: '20' },
+              '100%': { strokeDashoffset: '0' },
+            },
+            nodePulse: {
+              '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+              '50%': { transform: 'scale(1.1)', opacity: '0.8' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Kazi Musharraf",
-        "jobTitle": "AI Automation Engineer",
-        "url": "https://mk-knight23.github.io/08-portfolio-ai-automation/",
-        "sameAs": [
-            "https://github.com/mk-knight23",
-            "https://www.linkedin.com/in/kazi-musharraf-0674871a4/"
-        ]
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Kazi Musharraf",
+      "jobTitle": "Automation Engineer",
+      "url": "https://mk-knight23.github.io/08-portfolio-ai-automation/",
+      "sameAs": [
+        "https://github.com/mk-knight23",
+        "https://www.linkedin.com/in/kazi-musharraf-0674871a4/"
+      ]
     }
-    </script>
+  </script>
 </head>
 
-<body class="bg-slate-50 text-slate-900">
-  <a href="#root"
-    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-indigo-600 focus:text-white focus:rounded-lg">Skip
-    to main</a>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <script type="module" src="/src/main.tsx"></script>
-</body>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-blueprint-600 focus:text-white focus:rounded-lg">
+    Skip to main content
+  </a>
 
+  <!-- Grid Background -->
+  <div class="fixed inset-0 z-0 pointer-events-none">
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(14,165,233,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-blueprint-500/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-lg bg-blueprint-500/10 border border-blueprint-500/20 flex items-center justify-center group-hover:border-blueprint-500/40 transition-colors">
+            <i data-lucide="workflow" class="w-5 h-5 text-blueprint-400"></i>
+          </div>
+          <span class="font-mono text-sm font-medium text-slate-300">MK.<span class="text-blueprint-400">AUTOMATION</span></span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#about" class="nav-link px-4 py-2 text-sm text-slate-400 hover:text-blueprint-400 transition-colors">About</a>
+          <a href="#featured" class="nav-link px-4 py-2 text-sm text-slate-400 hover:text-blueprint-400 transition-colors">Featured</a>
+          <a href="#projects" class="nav-link px-4 py-2 text-sm text-slate-400 hover:text-blueprint-400 transition-colors">Projects</a>
+          <a href="#skills" class="nav-link px-4 py-2 text-sm text-slate-400 hover:text-blueprint-400 transition-colors">Skills</a>
+          <a href="#resume" class="nav-link px-4 py-2 text-sm text-slate-400 hover:text-blueprint-400 transition-colors">Resume</a>
+          <a href="#contact" class="ml-4 px-4 py-2 bg-blueprint-600 hover:bg-blueprint-500 text-white text-sm font-medium rounded-lg transition-colors">
+            Contact
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-white">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-b border-blueprint-500/10">
+      <div class="px-6 py-4 space-y-2">
+        <a href="#about" class="block px-4 py-2 text-slate-400 hover:text-blueprint-400">About</a>
+        <a href="#featured" class="block px-4 py-2 text-slate-400 hover:text-blueprint-400">Featured</a>
+        <a href="#projects" class="block px-4 py-2 text-slate-400 hover:text-blueprint-400">Projects</a>
+        <a href="#skills" class="block px-4 py-2 text-slate-400 hover:text-blueprint-400">Skills</a>
+        <a href="#resume" class="block px-4 py-2 text-slate-400 hover:text-blueprint-400">Resume</a>
+        <a href="#contact" class="block px-4 py-2 text-blueprint-400">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="relative z-10">
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center pt-20 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left: Content -->
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blueprint-500/10 border border-blueprint-500/20 rounded-full">
+              <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+              <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">Systems Operational</span>
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <span class="text-slate-100">Automation</span>
+              <span class="text-blueprint-400">Engineer</span>
+              <span class="block text-slate-400 text-2xl md:text-3xl lg:text-4xl font-normal mt-2">& Workflow Architect</span>
+            </h1>
+
+            <p class="text-lg text-slate-400 max-w-xl leading-relaxed">
+              Orchestrating complex workflows, CI/CD pipelines, and agentic systems.
+              Currently architecting the <span class="text-blueprint-400 font-medium">AI-VIBE-ECOSYSTEM v2.0</span>.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+              <a href="#featured" class="inline-flex items-center gap-2 px-6 py-3 bg-blueprint-600 hover:bg-blueprint-500 text-white font-medium rounded-lg transition-all hover:shadow-lg hover:shadow-blueprint-500/20">
+                <i data-lucide="git-branch" class="w-4 h-4"></i>
+                View Workflows
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-lg border border-slate-700 transition-all">
+                <i data-lucide="terminal" class="w-4 h-4"></i>
+                Init Contact
+              </a>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-6 pt-8 border-t border-slate-800">
+              <div>
+                <div class="text-2xl md:text-3xl font-bold text-blueprint-400 font-mono">60+</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Workflows</div>
+              </div>
+              <div>
+                <div class="text-2xl md:text-3xl font-bold text-blueprint-400 font-mono">100K+</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Invocations</div>
+              </div>
+              <div>
+                <div class="text-2xl md:text-3xl font-bold text-blueprint-400 font-mono">99.9%</div>
+                <div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Uptime</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: System Diagram -->
+          <div class="relative hidden lg:block">
+            <div class="absolute inset-0 bg-blueprint-500/5 rounded-3xl blur-3xl"></div>
+            <div class="relative bg-slate-900/50 border border-blueprint-500/20 rounded-2xl p-8 backdrop-blur-sm">
+              <!-- SVG System Diagram -->
+              <svg viewBox="0 0 400 300" class="w-full h-auto">
+                <!-- Grid Lines -->
+                <defs>
+                  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(14,165,233,0.1)" stroke-width="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="400" height="300" fill="url(#grid)" />
+
+                <!-- Connection Lines -->
+                <line x1="80" y1="150" x2="160" y2="80" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="5,5" opacity="0.6">
+                  <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="80" y1="150" x2="160" y2="150" stroke="#0ea5e9" stroke-width="2" opacity="0.6"/>
+                <line x1="80" y1="150" x2="160" y2="220" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="5,5" opacity="0.6">
+                  <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="240" y1="80" x2="320" y2="150" stroke="#0ea5e9" stroke-width="2" opacity="0.6"/>
+                <line x1="240" y1="150" x2="320" y2="150" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="5,5" opacity="0.6">
+                  <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite"/>
+                </line>
+                <line x1="240" y1="220" x2="320" y2="150" stroke="#0ea5e9" stroke-width="2" opacity="0.6"/>
+
+                <!-- Input Node -->
+                <circle cx="80" cy="150" r="25" fill="#0f172a" stroke="#0ea5e9" stroke-width="2"/>
+                <text x="80" y="155" text-anchor="middle" fill="#0ea5e9" font-size="10" font-family="JetBrains Mono">INPUT</text>
+
+                <!-- Process Nodes -->
+                <rect x="160" y="55" width="80" height="50" rx="8" fill="#0f172a" stroke="#0ea5e9" stroke-width="2"/>
+                <text x="200" y="75" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="JetBrains Mono">TRIGGER</text>
+                <text x="200" y="90" text-anchor="middle" fill="#0ea5e9" font-size="10" font-family="JetBrains Mono">n8n</text>
+
+                <rect x="160" y="125" width="80" height="50" rx="8" fill="#0f172a" stroke="#0ea5e9" stroke-width="2"/>
+                <text x="200" y="145" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="JetBrains Mono">PROCESS</text>
+                <text x="200" y="160" text-anchor="middle" fill="#0ea5e9" font-size="10" font-family="JetBrains Mono">Python</text>
+
+                <rect x="160" y="195" width="80" height="50" rx="8" fill="#0f172a" stroke="#0ea5e9" stroke-width="2"/>
+                <text x="200" y="215" text-anchor="middle" fill="#94a3b8" font-size="9" font-family="JetBrains Mono">AGENT</text>
+                <text x="200" y="230" text-anchor="middle" fill="#0ea5e9" font-size="10" font-family="JetBrains Mono">LLM</text>
+
+                <!-- Output Node -->
+                <circle cx="320" cy="150" r="25" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+                <text x="320" y="155" text-anchor="middle" fill="#10b981" font-size="10" font-family="JetBrains Mono">OUT</text>
+
+                <!-- Status Indicators -->
+                <circle cx="200" cy="65" r="3" fill="#10b981">
+                  <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="200" cy="135" r="3" fill="#10b981">
+                  <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="0.5s"/>
+                </circle>
+                <circle cx="200" cy="205" r="3" fill="#10b981">
+                  <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite" begin="1s"/>
+                </circle>
+              </svg>
+
+              <div class="mt-4 flex items-center justify-between text-xs font-mono text-slate-500">
+                <span>SYSTEM_DIAGRAM_v2.0</span>
+                <span class="flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+                  LIVE
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Section Header -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-24">
+              <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">01 // About</span>
+              <h2 class="text-3xl font-bold text-slate-100 mt-2">System Architect</h2>
+              <div class="w-12 h-0.5 bg-blueprint-500 mt-4"></div>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="lg:col-span-2 space-y-6">
+            <p class="text-lg text-slate-300 leading-relaxed">
+              Automation Engineer specializing in <span class="text-blueprint-400">Workflow Orchestration</span>,
+              <span class="text-blueprint-400">CI/CD Pipelines</span>, and <span class="text-blueprint-400">Agentic Systems</span>.
+              I design and implement end-to-end automation solutions that reduce operational overhead and increase system reliability.
+            </p>
+
+            <p class="text-slate-400 leading-relaxed">
+              Currently a <span class="text-slate-200 font-medium">Project Engineer (TURBO)</span> at
+              <span class="text-slate-200 font-medium">Wipro</span>, where I architect mission-critical automation pipelines
+              and AI-driven internal tools. My work spans n8n workflow orchestration, Python-based ETL processes,
+              and LLM-powered autonomous agents.
+            </p>
+
+            <p class="text-slate-400 leading-relaxed">
+              Leading the development of <span class="text-blueprint-400">AI-VIBE-ECOSYSTEM v2.0</span>,
+              a comprehensive automation platform featuring multi-agent orchestration, dynamic tool-use architecture,
+              and real-time data synchronization across 50+ SaaS applications.
+            </p>
+
+            <!-- Info Grid -->
+            <div class="grid sm:grid-cols-2 gap-4 pt-6">
+              <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <span class="text-xs font-mono text-slate-500 uppercase">Location</span>
+                <p class="text-slate-200 mt-1">Hyderabad, India</p>
+              </div>
+              <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <span class="text-xs font-mono text-slate-500 uppercase">Availability</span>
+                <p class="text-green-400 mt-1">Remote / Hybrid</p>
+              </div>
+              <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <span class="text-xs font-mono text-slate-500 uppercase">Phone</span>
+                <p class="text-slate-200 mt-1 font-mono">+91 9765490536</p>
+              </div>
+              <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                <span class="text-xs font-mono text-slate-500 uppercase">Focus</span>
+                <p class="text-blueprint-400 mt-1">Automation & DevOps</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section id="featured" class="py-24 px-6 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">02 // Featured</span>
+            <h2 class="text-3xl font-bold text-slate-100 mt-2">Top 8 Workflows</h2>
+            <p class="text-slate-400 mt-2">Critical automation systems and agentic workflows</p>
+          </div>
+          <a href="#projects" class="inline-flex items-center gap-2 text-blueprint-400 hover:text-blueprint-300 text-sm font-medium transition-colors">
+            View all 60 projects
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Featured Grid -->
+        <div class="grid md:grid-cols-2 gap-6" id="featured-grid">
+          <!-- Featured projects will be populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- All Projects Section -->
+    <section id="projects" class="py-24 px-6 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">03 // Repository</span>
+          <h2 class="text-3xl font-bold text-slate-100 mt-2">All 60 Projects</h2>
+          <p class="text-slate-400 mt-2 max-w-2xl mx-auto">
+            Complete automation ecosystem spanning web apps, games, tools, and starter templates.
+          </p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="flex flex-wrap justify-center gap-2 mb-12" id="category-filters">
+          <button class="filter-btn active px-4 py-2 bg-blueprint-600 text-white text-sm rounded-lg transition-colors" data-filter="all">All</button>
+          <button class="filter-btn px-4 py-2 bg-slate-800 text-slate-400 hover:text-white text-sm rounded-lg transition-colors" data-filter="Portfolios">Portfolios</button>
+          <button class="filter-btn px-4 py-2 bg-slate-800 text-slate-400 hover:text-white text-sm rounded-lg transition-colors" data-filter="Web Apps">Web Apps</button>
+          <button class="filter-btn px-4 py-2 bg-slate-800 text-slate-400 hover:text-white text-sm rounded-lg transition-colors" data-filter="Games">Games</button>
+          <button class="filter-btn px-4 py-2 bg-slate-800 text-slate-400 hover:text-white text-sm rounded-lg transition-colors" data-filter="Tools">Tools</button>
+          <button class="filter-btn px-4 py-2 bg-slate-800 text-slate-400 hover:text-white text-sm rounded-lg transition-colors" data-filter="Starters">Starters</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4" id="projects-grid">
+          <!-- Projects will be populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Section Header -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-24">
+              <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">04 // Stack</span>
+              <h2 class="text-3xl font-bold text-slate-100 mt-2">Technologies</h2>
+              <p class="text-slate-400 mt-4">Tools and platforms I use to build automation systems.</p>
+              <div class="w-12 h-0.5 bg-blueprint-500 mt-4"></div>
+            </div>
+          </div>
+
+          <!-- Skills Grid -->
+          <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+            <!-- Automation -->
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blueprint-500/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blueprint-500/10 rounded-lg flex items-center justify-center">
+                  <i data-lucide="workflow" class="w-5 h-5 text-blueprint-400"></i>
+                </div>
+                <h3 class="font-semibold text-slate-200">Automation</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">n8n</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Zapier</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Make</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">GitHub Actions</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Docker</span>
+              </div>
+            </div>
+
+            <!-- Programming -->
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blueprint-500/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blueprint-500/10 rounded-lg flex items-center justify-center">
+                  <i data-lucide="code-2" class="w-5 h-5 text-blueprint-400"></i>
+                </div>
+                <h3 class="font-semibold text-slate-200">Languages</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Python</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Node.js</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">TypeScript</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Bash</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">SQL</span>
+              </div>
+            </div>
+
+            <!-- AI/ML -->
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blueprint-500/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blueprint-500/10 rounded-lg flex items-center justify-center">
+                  <i data-lucide="brain" class="w-5 h-5 text-blueprint-400"></i>
+                </div>
+                <h3 class="font-semibold text-slate-200">AI & Agents</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">LangChain</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">OpenAI</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Claude</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">RAG</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Vector DBs</span>
+              </div>
+            </div>
+
+            <!-- Infrastructure -->
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blueprint-500/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blueprint-500/10 rounded-lg flex items-center justify-center">
+                  <i data-lucide="server" class="w-5 h-5 text-blueprint-400"></i>
+                </div>
+                <h3 class="font-semibold text-slate-200">Infrastructure</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Vercel</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Netlify</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Firebase</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">AWS</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">PostgreSQL</span>
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blueprint-500/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blueprint-500/10 rounded-lg flex items-center justify-center">
+                  <i data-lucide="layout" class="w-5 h-5 text-blueprint-400"></i>
+                </div>
+                <h3 class="font-semibold text-slate-200">Frontend</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">React</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Next.js</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Tailwind</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Vite</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">TypeScript</span>
+              </div>
+            </div>
+
+            <!-- DevOps -->
+            <div class="p-6 bg-slate-900/50 border border-slate-800 rounded-xl hover:border-blueprint-500/30 transition-colors">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 bg-blueprint-500/10 rounded-lg flex items-center justify-center">
+                  <i data-lucide="git-branch" class="w-5 h-5 text-blueprint-400"></i>
+                </div>
+                <h3 class="font-semibold text-slate-200">DevOps</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Git</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">CI/CD</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Docker</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Linux</span>
+                <span class="px-2 py-1 bg-slate-800 text-slate-300 text-xs rounded">Nginx</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-24 px-6 border-t border-slate-800">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-3 gap-12">
+          <!-- Section Header -->
+          <div class="lg:col-span-1">
+            <div class="sticky top-24">
+              <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">05 // Resume</span>
+              <h2 class="text-3xl font-bold text-slate-100 mt-2">Experience</h2>
+              <p class="text-slate-400 mt-4">Professional journey in automation and system architecture.</p>
+              <div class="w-12 h-0.5 bg-blueprint-500 mt-4"></div>
+
+              <a href="/resume.pdf" class="mt-8 inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm rounded-lg border border-slate-700 transition-colors">
+                <i data-lucide="download" class="w-4 h-4"></i>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Resume Content -->
+          <div class="lg:col-span-2 space-y-8">
+            <!-- Experience -->
+            <div class="space-y-6">
+              <h3 class="text-lg font-semibold text-slate-200 flex items-center gap-2">
+                <i data-lucide="briefcase" class="w-5 h-5 text-blueprint-400"></i>
+                Work Experience
+              </h3>
+
+              <div class="relative pl-6 border-l-2 border-blueprint-500/30 space-y-8">
+                <div class="relative">
+                  <span class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-950 border-2 border-blueprint-500 rounded-full"></span>
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <h4 class="text-lg font-semibold text-slate-200">Project Engineer (TURBO)</h4>
+                    <span class="text-sm text-slate-500 font-mono">Jul 2022 – Present</span>
+                  </div>
+                  <p class="text-blueprint-400 font-medium">Wipro</p>
+                  <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                    Architecting automation pipelines using n8n and Python. Deployed 60+ production workflows
+                    reducing operational overhead by 75%. Leading AI-VIBE-ECOSYSTEM v2.0 development with
+                    multi-agent orchestration and LLM integration.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education -->
+            <div class="space-y-6 pt-6 border-t border-slate-800">
+              <h3 class="text-lg font-semibold text-slate-200 flex items-center gap-2">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-blueprint-400"></i>
+                Education
+              </h3>
+
+              <div class="relative pl-6 border-l-2 border-slate-700">
+                <div class="relative">
+                  <span class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-950 border-2 border-slate-700 rounded-full"></span>
+                  <div class="flex flex-wrap items-center justify-between gap-2">
+                    <h4 class="text-lg font-semibold text-slate-200">B.Tech Computer Science</h4>
+                    <span class="text-sm text-slate-500 font-mono">2022</span>
+                  </div>
+                  <p class="text-slate-400 text-sm mt-1">Focus on Algorithms, AI, and System Design</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="space-y-6 pt-6 border-t border-slate-800">
+              <h3 class="text-lg font-semibold text-slate-200 flex items-center gap-2">
+                <i data-lucide="award" class="w-5 h-5 text-blueprint-400"></i>
+                Key Achievements
+              </h3>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                  <div class="text-2xl font-bold text-blueprint-400 font-mono">60+</div>
+                  <p class="text-slate-400 text-sm">Production workflows deployed</p>
+                </div>
+                <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                  <div class="text-2xl font-bold text-blueprint-400 font-mono">75%</div>
+                  <p class="text-slate-400 text-sm">Operational overhead reduction</p>
+                </div>
+                <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                  <div class="text-2xl font-bold text-blueprint-400 font-mono">100K+</div>
+                  <p class="text-slate-400 text-sm">Monthly API invocations</p>
+                </div>
+                <div class="p-4 bg-slate-900/50 border border-slate-800 rounded-lg">
+                  <div class="text-2xl font-bold text-blueprint-400 font-mono">99.9%</div>
+                  <p class="text-slate-400 text-sm">System uptime achieved</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-6 border-t border-slate-800">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="text-xs font-mono text-blueprint-400 uppercase tracking-wider">06 // Contact</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-slate-100 mt-2">Initialize Connection</h2>
+        <p class="text-slate-400 mt-4 max-w-xl mx-auto">
+          Ready to automate your workflows? Let's architect systems that scale.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a href="mailto:mk.knight970@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 bg-blueprint-600 hover:bg-blueprint-500 text-white font-medium rounded-lg transition-all hover:shadow-lg hover:shadow-blueprint-500/20">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+            mk.knight970@gmail.com
+          </a>
+          <a href="tel:+919765490536" class="inline-flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium rounded-lg border border-slate-700 transition-colors">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            +91 9765490536
+          </a>
+        </div>
+
+        <div class="flex justify-center gap-4 mt-8">
+          <a href="https://github.com/mk-knight23" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <i data-lucide="github" class="w-5 h-5"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/kazi-musharraf-0674871a4" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-slate-800 hover:bg-slate-700 border border-slate-700 rounded-lg flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-slate-800 bg-slate-950">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <i data-lucide="workflow" class="w-5 h-5 text-blueprint-400"></i>
+          <span class="font-mono text-sm text-slate-400">MK.AUTOMATION</span>
+        </div>
+
+        <p class="text-sm text-slate-500">
+          &copy; 2026 Kazi Musharraf. All systems operational.
+        </p>
+
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-600">
+          <span class="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></span>
+          v2.0.0
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
 </html>

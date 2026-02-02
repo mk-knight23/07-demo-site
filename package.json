@@ -11,7 +11,8 @@
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "deploy:gh": "gh-pages -d dist",
-    "deploy": "npm run build && npm run deploy:gh"
+    "deploy": "npm run build && npm run deploy:gh",
+    "test:e2e": "playwright test"
   },
   "keywords": [
     "demo",
@@ -37,6 +38,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
+    "@playwright/test": "^1.58.1",
     "@tailwindcss/vite": "^4.1.18",
     "@types/node": "^25.1.0",
     "@types/react": "^19.2.9",

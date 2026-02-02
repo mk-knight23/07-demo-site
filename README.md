@@ -1,5 +1,11 @@
 # 08-portfolio-ai-automation
 
+## 🚀 Live Demo
+
+This portfolio is deployed to multiple platforms:
+
+
+
 High-performance automation portfolio showcasing agentic workflows, LLM orchestration, and intelligent system architecture.
 Integrated with the **AI-VIBE-ECOSYSTEM v2.0** for advanced multi-agent orchestration.
 
