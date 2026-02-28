@@ -144,3 +144,64 @@ MIT
 ---
 
 *Last updated: 2026-02-26*
+
+## 🏗️ Architecture
+
+```
+08-portfolio-ai-automation/
+├── src/
+│   ├── components/     # Reusable React components
+│   ├── hooks/          # Custom React hooks
+│   ├── contexts/       # React Context for state
+│   ├── assets/         # Static assets
+│   ├── App.tsx         # Main app component
+│   └── main.tsx        # Entry point
+├── public/             # Static files
+└── tests/              # Test suites
+```
+
+### Design Patterns
+
+- **Component Composition**: Modular, reusable components
+- **Custom Hooks**: Encapsulated logic (useAutomation, useAgent)
+- **Context API**: Global state management
+- **Error Boundaries**: Graceful error handling
+- **Lazy Loading**: Code splitting for performance
+
+## 🌐 Deployment
+
+### Live URLs
+
+| Platform | URL |
+|----------|-----|
+| Firebase | https://portfolio-ai-automation.web.app |
+| GitHub Pages | [Deployed Link] |
+
+### Deploy to Firebase
+
+```bash
+npm run build
+firebase deploy
+```
+
+### Deploy to Vercel
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Deploy to Netlify
+
+```bash
+npm run build
+netlify deploy --prod --dir=dist
+```
+
+## 📄 License
+
+MIT License - see LICENSE file for details
+
+---
+
+Built with ❤️ by mk-knight23
