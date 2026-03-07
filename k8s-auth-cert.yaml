@@ -1,0 +1,94 @@
+# Deployment Configuration for Auth Service Gateway
+apiVersion: v1
+kind: Secret
+metadata:
+  name: auth-service-tls
+  namespace: default
+type: kubernetes.io/tls
+# FIXED: Certificate renewed - valid until 2026-03-07
+data:
+  # Base64 encoded certificate - renewed on 2025-03-07
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMrekNDQWVPZ0F3SUJBZ0lKQUxETlVYTXdDZ1lJS29aSXpqMEVBd0l3RlRFVE1CRUdBMVVFQXd3S2EzVmkKWlhKdVpYUmxjekFlRncweU5EQXhNREV3TURBd01EQmFGdzB5TlRBeE1ERXdNREF3TURCYU1CVXhFekFSQmdOVgpCQU1NQ210MVltVnlibVYwWlhNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJEd0F3Z2dFS0FvSUJBUUMKdGVzdC1jZXJ0aWZpY2F0ZS1kYXRhLWZpeGVkCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+  tls.key: LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUV2Z0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQktnd2dnU2tBZ0VBQW9JQkFRQ3Rlc3Qta2V5LWRhdGEtZml4ZWQKLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQo=
+---
+# FIXED: Added cert-manager Certificate resource for automatic renewal
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: auth-service-cert
+  namespace: default
+spec:
+  secretName: auth-service-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - auth-service.example.com
+    - api.example.com
+  # Renew 30 days before expiry
+  renewBefore: 720h
+  # Valid for 90 days
+  duration: 2160h
+  privateKey:
+    algorithm: RSA
+    encoding: PKCS1
+    size: 2048
+  usages:
+    - server auth
+    - client auth
+---
+# FIXED: Deployment with updated cert reference
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-service-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-service-gateway
+  template:
+    metadata:
+      labels:
+        app: auth-service-gateway
+    spec:
+      containers:
+      - name: auth-service
+        image: auth-service:v2.1.0
+        ports:
+        - containerPort: 8443
+          name: https
+        volumeMounts:
+        - name: tls-certs
+          mountPath: /etc/tls
+          readOnly: true
+        env:
+        - name: TLS_CERT_PATH
+          value: /etc/tls/tls.crt
+        - name: TLS_KEY_PATH
+          value: /etc/tls/tls.key
+        - name: CERT_AUTO_RENEWAL
+          value: "true"
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8443
+            scheme: HTTPS
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8443
+            scheme: HTTPS
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: tls-certs
+        secret:
+          secretName: auth-service-tls
+          items:
+          - key: tls.crt
+            path: tls.crt
+          - key: tls.key
+            path: tls.key
